@@ -13,8 +13,8 @@ console.log(uniqueArray);
 const setArray = new Set(uniqueArray);
 console.log(setArray);
 
-const resultArray = Array.from(setArray).map(id => {
-  return array1.find(user => user.id === id);
+const resultArray = Array.from(setArray).map((id) => {
+  return array1.find((user) => user.id === id);
 });
 console.log(resultArray);
 
@@ -29,3 +29,10 @@ console.log(resultArray);
 // });
 
 // console.log(filterArray);
+
+// Решение 3
+function number(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(number(1, 2));
