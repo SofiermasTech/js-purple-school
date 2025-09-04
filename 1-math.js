@@ -49,4 +49,48 @@ console.log(convert(100, 'RUB', 'USD')); // Ожидается: "1.25 USD"
 console.log(convert(100, 'USD', 'EUR')); // Ожидается: "1.25 USD"
 console.log(convert(100, 'GBP', 'USD')); // Ожидается: null
 
-Math.s
+// Задание на сравнение дат
+const dayNow = new Date();
+
+// задача 2
+const users1 = [
+  {
+    name: 'Alex',
+    birthday: '12/12/2025',
+  },
+  {
+    name: 'Sofa',
+    birthday: '09/04/2025',
+  },
+];
+
+function isBirthday(users) {
+  const birthdayUser = users.filter(function (user) {
+    const userDate = new Date(user.birthday);
+    return (
+      dayNow.getDate() === userDate.getDate() &&
+      dayNow.getMonth() === userDate.getMonth()
+    );
+  });
+
+  return birthdayUser.map((u) => u.name);
+}
+
+console.log(isBirthday(users1));
+
+// задача 1
+const user1 = {
+  name: 'Alex',
+  birthday: '09/03/2000',
+};
+
+function isBirthday1(user) {
+  const dayNow = new Date();
+  const userDate = new Date(user.birthday);
+  const userDay = userDate.getDate();
+  const userMonth = userDate.getMonth();
+
+   return dayNow.getDate() === userDay && dayNow.getMonth() === userMonth;
+}
+
+console.log(isBirthday1(user1));
