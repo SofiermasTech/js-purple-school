@@ -52,3 +52,48 @@ function countdown() {
 const timerId = setInterval(() => {
   countdown();
 }, 1000);
+
+function solution(str) {
+  return str.split('').reverse().join('');
+}
+
+console.log(solution('world'));
+
+//
+const product = {id: 1, name: 'Bread', count: 1}
+
+const Cart = function () {
+  this.products = [];
+};
+
+Cart.prototype.addProduct = function(product) {
+  if (this.products.find((p) => p.id === product.id)) {
+    return;
+  }
+  this.products.push(product);
+};
+
+Cart.prototype.increaseAmount = function(id) {
+  this.products = this.products.map(p => {
+    if(p.id == id) {
+      p.count++;
+      return p;
+    }
+    return p;
+  })
+}
+
+Cart.prototypedecreaseAmount = function(id) {
+  this.products = this.products.map(p => {
+    if(p.id == id) {
+      p.count--;
+      return p;
+    }
+    return p;
+  }).filter( p => p.count > 0 )
+}
+
+const cart = new Cart();
+cart.addProduct(product);
+cart.increaseAmount(1)
+console.log(cart)
