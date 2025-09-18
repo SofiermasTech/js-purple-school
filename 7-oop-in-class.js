@@ -11,34 +11,42 @@ class Character {
 }
 
 class Orc extends Character {
-  constructor(name, lang, weapon) {
-    super(name, lang);
+  constructor(name, lang, race, weapon) {
+    super(name, lang, race);
     this.weapon = weapon;
   }
 
   kick() {
     console.log(`${this.weapon}`);
   }
+
+  speak() {
+    console.log(`This is ${this.name} - ${this.race}, speak on - ${this.lang}`);
+  }
 }
 
-const orc = new Orc('Гром', 'Орочьем', 'Топор');
+const orc = new Orc('Гром', 'Орочьем', 'Orc', 'Топор');
 
 orc.speak();
 orc.kick();
 console.log(orc);
 
 class Elf extends Character {
-  constructor(name, lang, spell) {
-    super(name, lang);
+  constructor(name, lang, race, spell) {
+    super(name, lang, race);
     this.spell = spell;
   }
 
   useSpell() {
     console.log(`${this.spell}`);
   }
+
+  speak() {
+    console.log(`This is ${this.name} - ${this.race}, speak on - ${this.lang}`);
+  }
 }
 
-const elf = new Elf('Леголас', 'Эльфийском', 'Огненное');
+const elf = new Elf('Леголас', 'Эльфийском', 'Elf', 'Огненное');
 
 elf.speak();
 elf.useSpell();
