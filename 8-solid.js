@@ -44,3 +44,18 @@ const item = new itemBilling(5, 4);
 
 console.log(item);
 console.log(item.calculateTotal());
+
+//  -------------------------
+// https://dummyjson.com/products
+
+const request = new XMLHttpRequest();
+request.open('GET', 'https://dummyjson.com/products');
+request.send();
+
+request.addEventListener('load', function () {
+  const {products} = JSON.parse(this.responseText);
+  const sum = products.reduce((acc, p) => acc += p.price, 0)
+  console.log(Math.ceil(sum / products.length));
+});
+
+console.log();
